@@ -1,0 +1,62 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Calc</title>
+
+	<script>
+		function calculate(){
+			var l = parseInt(document.getElementById("left").value, 10);
+			var m = document.getElementById("mid").value;
+			var r = parseInt(document.getElementById("right").value, 10);
+			if(isNaN(l) || l < 0)
+				return alert("Error :('left' is not a valid number)");
+			if(isNaN(r) || l < 0)
+				return alert("Error :('right' is not a valid number)");
+			switch(m){
+				case "+" : 
+					console.log(l + r);
+					alert(l + r);
+					break;
+				case "-" : 
+					console.log(l - r);
+					alert(l - r);
+					break;
+				case "*" : 
+					console.log(l * r);
+					alert(l * r);
+					break;
+				case "/" :
+					if (r == 0)
+						return alert("It’s over 9000!");
+					console.log(l / r);
+					alert(l / r);
+					break;
+				case "%" :
+					if (r == 0)
+						return alert("It’s over 9000!");
+					console.log(l % r);
+					alert(l % r);
+					break;
+			}
+		}
+		function use(){
+			alert("Please, use me...");
+		}
+		setInterval(use, 30000);
+	</script>
+</head>
+<body>
+	<input type="text" id="left">
+	<select id="mid">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="%">%</option>
+		<option value="/">/</option>
+		<option value="*">*</option>
+	</select>
+	<input type="text" id="right">
+	<input type="submit" value="Try Me!" onclick="calculate()">
+</body>
+</html>
