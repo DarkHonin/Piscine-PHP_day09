@@ -1,0 +1,47 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Balloon</title>
+	<style>
+		#balloon{
+			display: block;
+			margin: auto;
+			border-radius: 100%;
+			
+			background-color: red;
+		}
+	</style>
+	<script>
+		var count = 1;
+		function inflate(){
+			var b = document.getElementById('balloon');
+			b.style.height = b.offsetHeight += 10;
+			b.style.width = b.style.height;
+			var colors = ["red", "green", "blue"];
+			b.style.backgroundColor = colors[count++];
+			if (count >= 3)
+				count = 0;
+			if(b.style.height >= "420px"){
+				b.style.height = 200;
+				b.style.width = b.style.height;
+			}
+		}
+
+		function deflate(){
+			var b = document.getElementById('balloon');
+			if (b.style.height <= "200px")
+				return;
+			b.style.height = b.offsetWidth -= 5;
+			b.style.width = b.style.height;
+		}
+	</script>
+</head>
+<body>
+	<div id="balloon" style="width: 200px;
+	height: 200px;" onclick="inflate()" onmouseleave="deflate()">
+
+	</div>
+</body>
+</html>
