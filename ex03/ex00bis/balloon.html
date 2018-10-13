@@ -1,0 +1,60 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Balloon</title>
+	<style>
+		#balloon{
+			display: block;
+			margin: auto;
+			border-radius: 100%;
+			
+			background-color: red;
+		}
+	</style>
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+	<script>
+
+		$(document).ready(function(){
+			$("#balloon").click(inflate);
+			$("#balloon").mouseleave(deflate);
+		});
+		var count = 1;
+		function inflate(){
+			var i= $(this);
+			var s = parseFloat(i.css('width'));
+			if (s <= 420)
+				s += 10;
+			else
+				s = 200;
+			i.css("width", s + "px");
+			i.css("height", i.css("width"));
+			var colors = ["red", "green", "blue"];
+			i.css("background-color", colors[count++]);
+			if (count >= 3)
+				count = 0;
+		}
+
+		function deflate(){
+			var i= $(this);
+			var s = parseFloat(i.css('width'));
+			if (s <= 200)
+				return;
+			else
+				s -= 5;
+			i.css("width", s + "px");
+			i.css("height", i.css("width"));
+		}
+	</script>
+</head>
+<body>
+	<div id="balloon" style="width: 200px;
+	height: 200px;" >
+
+	</div>
+</body>
+</html>

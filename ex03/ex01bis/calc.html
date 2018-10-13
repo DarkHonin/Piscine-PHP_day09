@@ -4,17 +4,23 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Calc</title>
-
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
 	<script>
-		function calculate(){
-			var l = parseInt(document.getElementById("left").value, 10);
-			var m = document.getElementById("mid").value;
-			var r = parseInt(document.getElementById("right").value, 10);
-			if(isNaN(l) || l < 0)
-				return alert("Error :('left' is not a valid number)");
-			if(isNaN(r) || r < 0)
-				return alert("Error :('right' is not a valid number)");
-			switch(m){
+
+		$(document).ready(function(){
+			$('input[type=submit]').click(function(){
+				var l = parseInt($("#left").val());
+				var m = $("#mid").val();
+				var r = parseInt($("#right").val());
+
+				if(isNaN(l) || l < 0)
+					return alert("Error :('left' is not a valid number) :: "+l);
+				if(isNaN(r) || r < 0)
+					return alert("Error :('right' is not a valid number)");
+				switch(m){
 				case "+" : 
 					console.log(l + r);
 					alert(l + r);
@@ -40,7 +46,9 @@
 					alert(l % r);
 					break;
 			}
-		}
+			});
+		});
+
 		function use(){
 			alert("Please, use me...");
 		}
@@ -57,6 +65,6 @@
 		<option value="*">*</option>
 	</select>
 	<input type="text" id="right">
-	<input type="submit" value="Try Me!" onclick="calculate()">
+	<input type="submit" value="Try Me!">
 </body>
 </html>
